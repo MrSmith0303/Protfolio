@@ -1,6 +1,6 @@
 # Portfolio Weboldal
 
-Modern, professzionális portfolio weboldal React-ben, sötét témával és zöld kiemelésekkel.
+Modern portfolio weboldal React-ben.
 
 ## Funkciók
 
