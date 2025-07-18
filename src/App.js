@@ -1,8 +1,9 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaBars } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const handleNavClick = (e) => {
       if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
@@ -12,6 +13,7 @@ function App() {
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
         }
+        setMenuOpen(false); // always close mobile menu on link click
       }
     };
     const nav = document.querySelector('.navbar');
@@ -21,15 +23,18 @@ function App() {
   return (
     <div className="hero-bg">
       <nav className="navbar">
-        <div className="navbar-logo">
-          <img src="https://github.com/MrSmith0303/Protfolio/blob/main/public/logo-removebg-preview.png?raw=true" alt="KL logó" />
-        </div>
-        <div className="navbar-links">
-          <a href="#welcome">Kezdőlap</a>
-          <a href="#about">Bemutatkozás</a>
-          <a href="#tech">Technológiák</a>
-          <a href="#projects">Projektek</a>
-          <a href="#contact">Kapcsolat</a>
+        <div className="navbar-inner">
+          {/* Hamburger icon for mobile */}
+          <button className="hamburger" onClick={() => setMenuOpen(m => !m)} aria-label="Menü" aria-expanded={menuOpen}>
+            <FaBars size={28} />
+          </button>
+          <div className={`navbar-links${menuOpen ? ' open' : ''}`}>
+            <a href="#welcome">Kezdőlap</a>
+            <a href="#about">Bemutatkozás</a>
+            <a href="#tech">Technológiák</a>
+            <a href="#projects">Projektek</a>
+            <a href="#contact">Kapcsolat</a>
+          </div>
         </div>
       </nav>
       {/* Dekoratív körök a háttérben */}
@@ -68,13 +73,6 @@ function App() {
           </div>
           <div className="profile-card">
             <img className="profile-img" src="https://scontent.fbud4-1.fna.fbcdn.net/v/t39.30808-6/518239586_3620342008096306_2334679957408394100_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=W2L0GO2rRZEQ7kNvwF65juB&_nc_oc=AdmAITkzxNPEA8RfsWg4ZpzGqcayw4EbfkJE80kvqJYLPctv-r1p_YC7Ph5mfJZU8MI&_nc_zt=23&_nc_ht=scontent.fbud4-1.fna&_nc_gid=Wz_JWPbELtOFZLmm1jU9jw&oh=00_AfQKCkUsawjQMtiAvv420Q-mEKoE140sxsG4GKOYbOV2Cg&oe=687AE77A" alt="Kovács László" />
-            <div className="profile-info">
-              <ul>
-                <li>JavaScript, React, Java, C#, SQL</li>
-                <li>Backend & Web technológiák</li>
-                <li>Gyors tanulás, csapatmunka</li>
-              </ul>
-            </div>
           </div>
         </div>
       </header>
