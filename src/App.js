@@ -22,7 +22,7 @@ function App() {
     <div className="hero-bg">
       <nav className="navbar">
         <div className="navbar-logo">
-          <img src="/logo-removebg-preview.png" alt="KL logó" />
+          <img src="https://github.com/MrSmith0303/Protfolio/blob/main/public/logo-removebg-preview.png?raw=true" alt="KL logó" />
         </div>
         <div className="navbar-links">
           <a href="#welcome">Kezdőlap</a>
