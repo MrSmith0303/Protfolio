@@ -54,7 +54,17 @@ function App() {
           <div className="hero-title-block">
             <h1 className="hero-title">Kovács László</h1>
             <h2 className="hero-subtitle">Junior Szoftverfejlesztő</h2>
-            <a href="#contact" className="hero-btn">Kapcsolat</a>
+            <a
+              href="#contact"
+              className="hero-btn"
+              onClick={e => {
+                e.preventDefault();
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Kapcsolat
+            </a>
           </div>
           <div className="profile-card">
             <img className="profile-img" src="https://scontent.fbud4-1.fna.fbcdn.net/v/t39.30808-6/518239586_3620342008096306_2334679957408394100_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=W2L0GO2rRZEQ7kNvwF65juB&_nc_oc=AdmAITkzxNPEA8RfsWg4ZpzGqcayw4EbfkJE80kvqJYLPctv-r1p_YC7Ph5mfJZU8MI&_nc_zt=23&_nc_ht=scontent.fbud4-1.fna&_nc_gid=Wz_JWPbELtOFZLmm1jU9jw&oh=00_AfQKCkUsawjQMtiAvv420Q-mEKoE140sxsG4GKOYbOV2Cg&oe=687AE77A" alt="Kovács László" />
