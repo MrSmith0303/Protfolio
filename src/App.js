@@ -181,7 +181,7 @@ function App() {
         <div className="footer-icons">
           <a href="mailto:kovacslaszlo0303@gmail.com" title="Gmail" target="_blank" rel="noopener noreferrer"><FaEnvelope size={28} /></a>
           <a href="https://github.com/MrSmith0303" title="GitHub" target="_blank" rel="noopener noreferrer"><FaGithub size={28} /></a>
-          <a href="https://www.linkedin.com/in/kovacs-laszlo-0303/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedin size={28} /></a>
+          <a href="https://www.linkedin.com/in/l%C3%A1szl%C3%B3-kov%C3%A1cs-3a3409204/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedin size={28} /></a>
         </div>
         <div className="footer-text">
           Kovács László &middot; +36 30 812 9165
