@@ -946,48 +946,33 @@ body, html, #root {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
-  section,
-  .section-light,
-  .contact-section,
-  .projects-section {
-    max-width: 95vw;
-    margin: 0 auto 1.5rem auto;
-    padding: 1rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-  }
-  .contact-form,
-  .tech-list,
-  .projects-grid {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  .project-card,
-  .tech-item {
-    margin: 0 auto;
-  }
-  .hero-header,
-  .welcome-section {
-    /* változatlan marad */
-  }
-  .hero-title-block,
-  .section-title {
+  .section, .section-light, .projects-section, .contact-section {
     text-align: center;
-    width: 100%;
   }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    max-width: 400px;
+  .section-title,
+  .tech-list,
+  .projects-grid,
+  .contact-form {
+    margin-left: auto;
+    margin-right: auto;
   }
-  .hero-btn,
-  .contact-form button {
-    display: block;
-    margin: 1rem auto 0 auto;
+  .section-light, .contact-section {
+    max-width: 95vw;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-light, .contact-section {
+    max-width: 88vw;
+    padding: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-light, .contact-section {
+    max-width: 88vw;
+    padding: 0.7rem;
+    margin-left: 1.7rem;
+    margin-right: 0.3rem;
   }
 }
 
@@ -1003,4 +988,15 @@ body, html, #root {
   padding-right: 0 !important;
   box-sizing: border-box !important;
   background: #101214;
+}
+
+@media (max-width: 600px) {
+  section,
+  .section-light,
+  .contact-section,
+  .projects-section {
+    margin: 0 auto 1.5rem auto;
+    max-width: 95vw;
+    box-sizing: border-box;
+  }
 }
