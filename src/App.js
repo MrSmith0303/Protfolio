@@ -1,6 +1,25 @@
 import './App.css';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaBars } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import emailjs from 'emailjs-com';
+
+function sendEmail(e) {
+  e.preventDefault();
+  emailjs.sendForm(
+    'service_nfgxc7g', // Service ID
+    'template_pab30g8', // Template ID
+    e.target,
+    'fpaaO1Zb722qivshf' // Public Key
+  ).then(
+    (result) => {
+      alert('Üzenet elküldve! Köszönöm a megkeresést.');
+    },
+    (error) => {
+      alert('Hiba történt az üzenet küldésekor. Próbáld újra később.');
+    }
+  );
+  e.target.reset();
+}
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -156,10 +175,7 @@ function App() {
           </section>
           <section className="section section-light contact-section" id="contact">
             <h2 className="section-title">Kapcsolat</h2>
-            <form className="contact-form" onSubmit={e => {
-              e.preventDefault();
-              alert('Üzenet elküldve! Köszönöm a megkeresést.');
-            }}>
+            <form className="contact-form" onSubmit={sendEmail}>
               <div className="form-row">
                 <label htmlFor="name">Név</label>
                 <input type="text" id="name" name="name" required />
