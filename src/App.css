@@ -949,6 +949,22 @@ body, html, #root {
   .section, .section-light, .projects-section, .contact-section {
     text-align: center;
   }
+  .section-title {
+    text-align: center;
+  }
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-form {
+    align-items: center;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    max-width: 400px;
+  }
   .section-title,
   .tech-list,
   .projects-grid,
