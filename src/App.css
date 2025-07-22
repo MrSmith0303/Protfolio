@@ -719,6 +719,11 @@ body, html, #root {
   box-shadow: 0 2px 16px rgba(0,0,0,0.10);
 }
 
+.intro-section, .hero-intro {
+  position: relative;
+  z-index: 2;
+}
+
 .footer {
   width: 100vw;
   position: fixed;
