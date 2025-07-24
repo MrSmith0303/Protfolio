@@ -74,20 +74,29 @@ function App() {
   // Projektek tömb képekkel
   const projects = [
     {
-      title: "Portfolio Website",
-      description: "Saját portfólió oldal, React + CSS, reszponzív dizájn.",
+      title: { hu: "Portfolio oldal", en: "Portfolio Website" },
+      description: {
+        hu: "Saját portfólió oldal, React + CSS, reszponzív dizájn.",
+        en: "Personal portfolio website, built with React + CSS, responsive design."
+      },
       image: "https://github.com/MrSmith0303/Protfolio/blob/main/public/Portfolio.png?raw=true",
       link: "https://github.com/MrSmith0303/Protfolio/tree/main"
     },
     {
-      title: "Todo App",
-      description: "Egyszerű feladatkezelő alkalmazás, React + LocalStorage.",
+      title: { hu: "Teendő alkalmazás", en: "Todo App" },
+      description: {
+        hu: "Egyszerű feladatkezelő alkalmazás, React + LocalStorage.",
+        en: "Simple task manager app, built with React and LocalStorage."
+      },
       image: "/projects/todo.png",
       link: "#"
     },
     {
-      title: "Weather App",
-      description: "Időjárás alkalmazás, OpenWeatherMap API, React.",
+      title: { hu: "Időjárás alkalmazás", en: "Weather App" },
+      description: {
+        hu: "Időjárás alkalmazás, OpenWeatherMap API, React.",
+        en: "Weather app using OpenWeatherMap API and React."
+      },
       image: "/projects/weather.png",
       link: "#"
     }
@@ -241,9 +250,9 @@ function App() {
             <div className="projects-grid">
               {projects.map((project, idx) => (
                 <div className="project-card" key={idx}>
-                  <img src={project.image} alt={project.title} className="project-image" />
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
+                  <img src={project.image} alt={project.title[language]} className="project-image" />
+                  <h3>{project.title[language]}</h3>
+                  <p>{project.description[language]}</p>
                   <a href={project.link} className="project-link">GitHub</a>
                 </div>
               ))}
