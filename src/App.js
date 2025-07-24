@@ -1,5 +1,5 @@
 import './App.css';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaBars } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaBars, FaCheck } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
 
@@ -23,6 +23,75 @@ function sendEmail(e) {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState('hu');
+  // Szövegek két nyelven
+  const texts = {
+    hu: {
+      nav: ['Kezdőlap', 'Bemutatkozás', 'Technológiák', 'Projektek', 'Kapcsolat'],
+      welcomeTitle: 'Üdvözöllek!',
+      welcomeText: 'Örülök, hogy itt vagy. Ismerd meg a munkáimat és szakmai utamat!',
+      welcomeBtn: 'Tovább a bemutatkozáshoz',
+      name: 'Kovács László',
+      title: 'Junior Szoftverfejlesztő',
+      aboutBtn: 'Kapcsolat',
+      intro: 'Lelkes és elhivatott junior szoftverfejlesztő vagyok, akit különösen érdekel a backend fejlesztés világa, Java, C# és webes technológiák területén. Célom, hogy valós projektekben szerepet vállalva gyakorlati tapasztalatot szerezzek, és tudásomat tovább mélyítsem egy támogató, tanulásorientált fejlesztői környezetben.',
+      techTitle: 'Használt technológiáim',
+      projectsTitle: 'Projektek',
+      contactTitle: 'Kapcsolat',
+      contactForm: {
+        name: 'Név',
+        email: 'E-mail',
+        message: 'Üzenet',
+        send: 'Küldés',
+        success: 'Üzenet elküldve! Köszönöm a megkeresést.',
+        error: 'Hiba történt az üzenet küldésekor. Próbáld újra később.'
+      },
+      github: 'GitHub',
+    },
+    en: {
+      nav: ['Home', 'About', 'Technologies', 'Projects', 'Contact'],
+      welcomeTitle: 'Welcome!',
+      welcomeText: 'Glad you are here. Discover my work and professional journey!',
+      welcomeBtn: 'Go to About',
+      name: 'László Kovács',
+      title: 'Junior Software Developer',
+      aboutBtn: 'Contact',
+      intro: 'I am an enthusiastic and dedicated junior software developer, especially interested in backend development, Java, C#, and web technologies. My goal is to gain practical experience by participating in real projects and deepen my knowledge in a supportive, learning-oriented developer environment.',
+      techTitle: 'Technologies I use',
+      projectsTitle: 'Projects',
+      contactTitle: 'Contact',
+      contactForm: {
+        name: 'Name',
+        email: 'E-mail',
+        message: 'Message',
+        send: 'Send',
+        success: 'Message sent! Thank you for reaching out.',
+        error: 'An error occurred while sending the message. Please try again later.'
+      },
+      github: 'GitHub',
+    }
+  };
+  // Projektek tömb képekkel
+  const projects = [
+    {
+      title: "Portfolio Website",
+      description: "Saját portfólió oldal, React + CSS, reszponzív dizájn.",
+      image: "https://github.com/MrSmith0303/Protfolio/blob/main/public/Portfolio.png?raw=true",
+      link: "https://github.com/MrSmith0303/Protfolio/tree/main"
+    },
+    {
+      title: "Todo App",
+      description: "Egyszerű feladatkezelő alkalmazás, React + LocalStorage.",
+      image: "/projects/todo.png",
+      link: "#"
+    },
+    {
+      title: "Weather App",
+      description: "Időjárás alkalmazás, OpenWeatherMap API, React.",
+      image: "/projects/weather.png",
+      link: "#"
+    }
+  ];
   useEffect(() => {
     const handleNavClick = (e) => {
       if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
@@ -49,11 +118,25 @@ function App() {
               <FaBars size={28} />
             </button>
             <div className={`navbar-links${menuOpen ? ' open' : ''}`}>
-              <a href="#welcome">Kezdőlap</a>
-              <a href="#about">Bemutatkozás</a>
-              <a href="#tech">Technológiák</a>
-              <a href="#projects">Projektek</a>
-              <a href="#contact">Kapcsolat</a>
+              <a href="#welcome">{texts[language].nav[0]}</a>
+              <a href="#about">{texts[language].nav[1]}</a>
+              <a href="#tech">{texts[language].nav[2]}</a>
+              <a href="#projects">{texts[language].nav[3]}</a>
+              <a href="#contact">{texts[language].nav[4]}</a>
+            </div>
+            {/* Language toggle switch */}
+            <div className="lang-toggle">
+              <span className="lang-label">HU</span>
+              <button
+                className={`switch${language === 'en' ? ' checked' : ''}`}
+                onClick={() => setLanguage(language === 'hu' ? 'en' : 'hu')}
+                aria-label="Nyelvváltás"
+              >
+                <span className="switch-slider">
+                  {language === 'en' && <FaCheck color="#fff" size={18} />}
+                </span>
+              </button>
+              <span className="lang-label">EN</span>
             </div>
           </div>
         </nav>
@@ -66,19 +149,19 @@ function App() {
         <div className="circle circle6"></div>
         <div className="circle circle7"></div>
         <div className="welcome-section" id="welcome">
-          <h1>Üdvözöllek!</h1>
-          <p>Örülök, hogy itt vagy. Ismerd meg a munkáimat és szakmai utamat!</p>
+          <h1>{texts[language].welcomeTitle}</h1>
+          <p>{texts[language].welcomeText}</p>
           <a href="#about" className="hero-btn" onClick={e => {
             e.preventDefault();
             const el = document.querySelector('.hero-header');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}>Tovább a bemutatkozáshoz</a>
+          }}>{texts[language].welcomeBtn}</a>
         </div>
         <header className="hero-header" id="about">
           <div className="hero-content">
             <div className="hero-title-block">
-              <h1 className="hero-title">Kovács László</h1>
-              <h2 className="hero-subtitle">Junior Szoftverfejlesztő</h2>
+              <h1 className="hero-title">{texts[language].name}</h1>
+              <h2 className="hero-subtitle">{texts[language].title}</h2>
               <a
                 href="#contact"
                 className="hero-btn"
@@ -88,7 +171,7 @@ function App() {
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Kapcsolat
+                {texts[language].aboutBtn}
               </a>
             </div>
             <div className="profile-card">
@@ -97,11 +180,11 @@ function App() {
           </div>
         </header>
         <section className="intro-section">
-          <p className="hero-intro">Lelkes és elhivatott junior szoftverfejlesztő vagyok, akit különösen érdekel a backend fejlesztés világa, Java, C# és webes technológiák területén. Célom, hogy valós projektekben szerepet vállalva gyakorlati tapasztalatot szerezzek, és tudásomat tovább mélyítsem egy támogató, tanulásorientált fejlesztői környezetben.</p>
+          <p className="hero-intro">{texts[language].intro}</p>
         </section>
         <main>
           <section className="section section-light" id="tech">
-            <h2 className="section-title">Használt technológiáim</h2>
+            <h2 className="section-title">{texts[language].techTitle}</h2>
             <div className="tech-list">
               <div className="tech-item">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="tech-icon" />
@@ -154,41 +237,34 @@ function App() {
             </div>
           </section>
           <section className="section section-light projects-section" id="projects">
-            <h2 className="section-title">Projektek</h2>
+            <h2 className="section-title">{texts[language].projectsTitle}</h2>
             <div className="projects-grid">
-              <div className="project-card">
-                <h3>Portfolio Website</h3>
-                <p>Saját portfólió oldal, React + CSS, reszponzív dizájn.</p>
-                <a href="#" className="project-link">GitHub</a>
-              </div>
-              <div className="project-card">
-                <h3>Todo App</h3>
-                <p>Egyszerű feladatkezelő alkalmazás, React + LocalStorage.</p>
-                <a href="#" className="project-link">GitHub</a>
-              </div>
-              <div className="project-card">
-                <h3>Weather App</h3>
-                <p>Időjárás alkalmazás, OpenWeatherMap API, React.</p>
-                <a href="#" className="project-link">GitHub</a>
-              </div>
+              {projects.map((project, idx) => (
+                <div className="project-card" key={idx}>
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <a href={project.link} className="project-link">GitHub</a>
+                </div>
+              ))}
             </div>
           </section>
           <section className="section section-light contact-section" id="contact">
-            <h2 className="section-title">Kapcsolat</h2>
+            <h2 className="section-title">{texts[language].contactTitle}</h2>
             <form className="contact-form" onSubmit={sendEmail}>
               <div className="form-row">
-                <label htmlFor="name">Név</label>
+                <label htmlFor="name">{texts[language].contactForm.name}</label>
                 <input type="text" id="name" name="name" required />
               </div>
               <div className="form-row">
-                <label htmlFor="email">E-mail</label>
+                <label htmlFor="email">{texts[language].contactForm.email}</label>
                 <input type="email" id="email" name="email" required />
               </div>
               <div className="form-row">
-                <label htmlFor="message">Üzenet</label>
+                <label htmlFor="message">{texts[language].contactForm.message}</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" className="hero-btn" style={{marginTop: '1.2rem'}}>Küldés</button>
+              <button type="submit" className="hero-btn" style={{marginTop: '1.2rem'}}>{texts[language].contactForm.send}</button>
             </form>
           </section>
         </main>
