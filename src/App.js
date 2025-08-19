@@ -34,7 +34,7 @@ function App() {
       name: 'Kovács László',
       title: 'Junior Szoftverfejlesztő',
       aboutBtn: 'Kapcsolat',
-      intro: 'Lelkes és elhivatott junior szoftverfejlesztő vagyok, akit különösen érdekel a backend fejlesztés világa, Java, C# és webes technológiák területén. Célom, hogy valós projektekben szerepet vállalva gyakorlati tapasztalatot szerezzek, és tudásomat tovább mélyítsem egy támogató, tanulásorientált fejlesztői környezetben.',
+      intro: 'Elhivatott és motivált junior szoftverfejlesztő vagyok, aki Java, C# és webes technológiák terén rendelkezik alapismeretekkel. Célom, hogy szakmai fejlődésemet gyakorlati tapasztalatszerzéssel támogassam, és tudásomat egy innovatív, támogató és fejlődésorientált fejlesztői környezetben mélyítsem tovább.',
       techTitle: 'Használt technológiáim',
       projectsTitle: 'Projektek',
       contactTitle: 'Kapcsolat',
@@ -56,7 +56,7 @@ function App() {
       name: 'László Kovács',
       title: 'Junior Software Developer',
       aboutBtn: 'Contact',
-      intro: 'I am an enthusiastic and dedicated junior software developer, especially interested in backend development, Java, C#, and web technologies. My goal is to gain practical experience by participating in real projects and deepen my knowledge in a supportive, learning-oriented developer environment.',
+      intro: 'I am a dedicated and motivated junior software developer with foundational knowledge in Java, C#, and web technologies. My goal is to support my professional growth through hands-on experience and to deepen my expertise in an innovative, supportive, and development-focused environment.',
       techTitle: 'Technologies I use',
       projectsTitle: 'Projects',
       contactTitle: 'Contact',
@@ -97,8 +97,8 @@ function App() {
         hu: "Időjárás alkalmazás, OpenWeatherMap API, React.",
         en: "Weather app using OpenWeatherMap API and React."
       },
-      image: "/projects/weather.png",
-      link: "#"
+      image: "https://github.com/MrSmith0303/WeatherApp/blob/master/public/weatherapp_thumbnail.png?raw=true",
+      link: "https://github.com/MrSmith0303/WeatherApp"
     }
   ];
   useEffect(() => {
@@ -184,7 +184,7 @@ function App() {
               </a>
             </div>
             <div className="profile-card">
-              <img className="profile-img" src="https://scontent.fbud4-1.fna.fbcdn.net/v/t39.30808-6/518239586_3620342008096306_2334679957408394100_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=W2L0GO2rRZEQ7kNvwF65juB&_nc_oc=AdmAITkzxNPEA8RfsWg4ZpzGqcayw4EbfkJE80kvqJYLPctv-r1p_YC7Ph5mfJZU8MI&_nc_zt=23&_nc_ht=scontent.fbud4-1.fna&_nc_gid=Wz_JWPbELtOFZLmm1jU9jw&oh=00_AfQKCkUsawjQMtiAvv420Q-mEKoE140sxsG4GKOYbOV2Cg&oe=687AE77A" alt="Kovács László" />
+              <img className="profile-img" src="https://github.com/MrSmith0303/Protfolio/blob/main/public/Profil.png?raw=true" alt="Kovács László" />
             </div>
           </div>
         </header>
