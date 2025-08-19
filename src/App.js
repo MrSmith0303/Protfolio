@@ -184,7 +184,7 @@ function App() {
               </a>
             </div>
             <div className="profile-card">
-              <img className="profile-img" src="https://scontent.fbud5-1.fna.fbcdn.net/v/t39.30808-6/518239586_3620342008096306_2334679957408394100_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=n1o4mHyo2EAQ7kNvwH7lSsA&_nc_oc=Adk7obhS8UbSHfzCBViL1Sr-SIw63iooNcvZc2cAK9ZuU3w_MSIp8BWyxYF9svzaNH8&_nc_zt=23&_nc_ht=scontent.fbud5-1.fna&_nc_gid=MSRtNKVtHiBI1_evvvZnEQ&oh=00_AfTCk1B2edJwi0QfKMhOGZV_G_yiRc_6dZRyQFAKwohk0A&oe=68884EBA" alt="Kovács László" />
+              <img className="profile-img" src="https://github.com/MrSmith0303/Protfolio/blob/main/public/Profil.png?raw=true" alt="Kovács László" />
             </div>
           </div>
         </header>
