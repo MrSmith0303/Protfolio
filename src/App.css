@@ -34,7 +34,7 @@ body, html, #root {
   --shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
 
-/* --- Navbar centering and structure --- */
+
 .navbar {
   width: 100%;
   min-width: 100vw;
@@ -85,7 +85,7 @@ body, html, #root {
   color: #101214;
 }
 
-/* Hamburger alapstílus - rejtve desktopon */
+
 .hamburger {
   display: none;
   background: none;
@@ -185,7 +185,7 @@ body, html, #root {
   padding-top: 64px;
 }
 
-/* Dekoratív körök */
+
 .circle {
   position: fixed;
   border-radius: 50%;
@@ -371,7 +371,6 @@ body, html, #root {
   margin-bottom: 0.5rem;
 }
 
-/* Project Showcase */
 .section {
   width: 100%;
   display: flex;
@@ -437,7 +436,7 @@ body, html, #root {
   margin: 0;
 }
 
-/* Kapcsolat kártya */
+
 .contact-section {
   background: var(--card-light);
   border-radius: var(--border-radius);
@@ -1011,7 +1010,7 @@ body, html, #root {
   }
 }
 
-/* --- Language toggle switch --- */
+
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -1086,4 +1085,17 @@ body, html, #root {
     left: 16px;
   }
 }
-/* --- End language toggle switch --- */
+
+.live-check{
+  justify-items: end;
+}
+
+.project-link {
+  margin-right: 20px; /* vagy amennyi kell */
+  text-decoration: none;
+  color: #00ff66; /* maradjon zöld pl. */
+}
+
+.project-link:last-child {
+  margin-right: 0; /* az utolsónál ne legyen plusz */
+}

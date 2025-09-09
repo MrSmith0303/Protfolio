@@ -6,10 +6,10 @@ import emailjs from 'emailjs-com';
 function sendEmail(e) {
   e.preventDefault();
   emailjs.sendForm(
-    'service_nfgxc7g', // Service ID
-    'template_pab30g8', // Template ID
+    'service_nfgxc7g',
+    'template_pab30g8',
     e.target,
-    'fpaaO1Zb722qivshf' // Public Key
+    'fpaaO1Zb722qivshf'
   ).then(
     (result) => {
       alert('Üzenet elküldve! Köszönöm a megkeresést.');
@@ -24,7 +24,7 @@ function sendEmail(e) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [language, setLanguage] = useState('hu');
-  // Szövegek két nyelven
+
   const texts = {
     hu: {
       nav: ['Kezdőlap', 'Bemutatkozás', 'Technológiák', 'Projektek', 'Kapcsolat'],
@@ -47,6 +47,7 @@ function App() {
         error: 'Hiba történt az üzenet küldésekor. Próbáld újra később.'
       },
       github: 'GitHub',
+      viewProject: 'Megtekintés',
     },
     en: {
       nav: ['Home', 'About', 'Technologies', 'Projects', 'Contact'],
@@ -69,9 +70,10 @@ function App() {
         error: 'An error occurred while sending the message. Please try again later.'
       },
       github: 'GitHub',
+      viewProject: 'View',
     }
   };
-  // Projektek tömb képekkel
+
   const projects = [
     {
       title: { hu: "Portfolio oldal", en: "Portfolio Website" },
@@ -80,15 +82,16 @@ function App() {
         en: "Personal portfolio website, built with React + CSS, responsive design."
       },
       image: "https://github.com/MrSmith0303/Protfolio/blob/main/public/Portfolio.png?raw=true",
-      link: "https://github.com/MrSmith0303/Protfolio/tree/main"
+      github: "https://github.com/MrSmith0303/Protfolio/tree/main",
+      link: "#"
     },
     {
       title: { hu: "Teendő alkalmazás", en: "Todo App" },
       description: {
-        hu: "Egyszerű feladatkezelő alkalmazás, React + LocalStorage.",
-        en: "Simple task manager app, built with React and LocalStorage."
+        hu: "Készítés alatt",
+        en: "Work in progress"
       },
-      image: "/projects/todo.png",
+      image: "https://github.com/MrSmith0303/Protfolio/blob/main/public/work_in_progress.png?raw=true/todo.png",
       link: "#"
     },
     {
@@ -98,7 +101,8 @@ function App() {
         en: "Weather app using OpenWeatherMap API and React."
       },
       image: "https://github.com/MrSmith0303/WeatherApp/blob/master/public/weatherapp_thumbnail.png?raw=true",
-      link: "https://github.com/MrSmith0303/WeatherApp"
+      github: "https://github.com/MrSmith0303/WeatherApp",
+      link: "https://weather-app-beige-five-54.vercel.app/#forecast"
     }
   ];
   useEffect(() => {
@@ -110,7 +114,7 @@ function App() {
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
         }
-        setMenuOpen(false); // always close mobile menu on link click
+        setMenuOpen(false);
       }
     };
     const nav = document.querySelector('.navbar');
@@ -122,7 +126,7 @@ function App() {
       <div className="hero-bg">
         <nav className="navbar">
           <div className="navbar-inner">
-            {/* Hamburger icon for mobile */}
+
             <button className="hamburger" onClick={() => setMenuOpen(m => !m)} aria-label="Menü" aria-expanded={menuOpen}>
               <FaBars size={28} />
             </button>
@@ -133,7 +137,7 @@ function App() {
               <a href="#projects">{texts[language].nav[3]}</a>
               <a href="#contact">{texts[language].nav[4]}</a>
             </div>
-            {/* Language toggle switch */}
+
             <div className="lang-toggle">
               <span className="lang-label">HU</span>
               <button
@@ -149,7 +153,7 @@ function App() {
             </div>
           </div>
         </nav>
-        {/* Dekoratív körök a háttérben */}
+
         <div className="circle circle1"></div>
         <div className="circle circle2"></div>
         <div className="circle circle3"></div>
@@ -199,7 +203,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="tech-icon" />
                 <span className="tech-label">Java</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '80%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '80%' }}></div>
                 </div>
                 <span className="tech-percent">80%</span>
               </div>
@@ -207,7 +211,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" className="tech-icon" />
                 <span className="tech-label">C#</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '75%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '75%' }}></div>
                 </div>
                 <span className="tech-percent">75%</span>
               </div>
@@ -215,7 +219,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="tech-icon" />
                 <span className="tech-label">Git</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '60%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '60%' }}></div>
                 </div>
                 <span className="tech-percent">60%</span>
               </div>
@@ -223,7 +227,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="tech-icon" />
                 <span className="tech-label">JavaScript</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '40%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '40%' }}></div>
                 </div>
                 <span className="tech-percent">40%</span>
               </div>
@@ -231,7 +235,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="tech-icon" />
                 <span className="tech-label">React</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '30%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '30%' }}></div>
                 </div>
                 <span className="tech-percent">30%</span>
               </div>
@@ -239,7 +243,7 @@ function App() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" className="tech-icon" />
                 <span className="tech-label">SQL</span>
                 <div className="tech-bar-bg">
-                  <div className="tech-bar-fill" style={{width: '50%'}}></div>
+                  <div className="tech-bar-fill" style={{ width: '50%' }}></div>
                 </div>
                 <span className="tech-percent">50%</span>
               </div>
@@ -253,7 +257,11 @@ function App() {
                   <img src={project.image} alt={project.title[language]} className="project-image" />
                   <h3>{project.title[language]}</h3>
                   <p>{project.description[language]}</p>
-                  <a href={project.link} className="project-link">GitHub</a>
+                  <div className="d-flex gap-5 justify-content-center">
+                    <a href={project.github} className="project-link">GitHub</a>
+                    <a href={project.link} className="project-link">{texts[language].viewProject}</a>
+                  </div>
+
                 </div>
               ))}
             </div>
@@ -273,7 +281,7 @@ function App() {
                 <label htmlFor="message">{texts[language].contactForm.message}</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" className="hero-btn" style={{marginTop: '1.2rem'}}>{texts[language].contactForm.send}</button>
+              <button type="submit" className="hero-btn" style={{ marginTop: '1.2rem' }}>{texts[language].contactForm.send}</button>
             </form>
           </section>
         </main>
